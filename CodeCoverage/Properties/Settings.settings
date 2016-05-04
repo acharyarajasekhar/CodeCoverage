@@ -1,0 +1,24 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="CodeCoverage.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="VsPerfCmdExe" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">VsPerfCmd.exe</Value>
+    </Setting>
+    <Setting Name="StartVsPerfCmdExe" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">/start:coverage /output:{0}</Value>
+    </Setting>
+    <Setting Name="StopVsPerfCmdExe" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">/shutdown</Value>
+    </Setting>
+    <Setting Name="ReportGeneratorExe" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">ReportGenerator.exe</Value>
+    </Setting>
+    <Setting Name="ReportGeneratorExeArgs" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">-reports:{0} -targetdir:{1}</Value>
+    </Setting>
+    <Setting Name="BrowserExe" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">C:\Program Files\Google\Chrome\Application\chrome.exe</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>
