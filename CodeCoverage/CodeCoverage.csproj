@@ -50,9 +50,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ContextMenuEvents.cs">
+    <Compile Include="CodeCoverageContextClickEvents.cs" />
+    <Compile Include="CodeCoverageContextHelpers.cs" />
+    <Compile Include="SettingDialog.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Include="SettingDialog.Designer.cs">
+      <DependentUpon>SettingDialog.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CodeCoverageContext.cs" />
     <Compile Include="ExternalProgramManager.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -66,18 +72,19 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>Settings.settings</DependentUpon>
     </Compile>
-    <Compile Include="TrayAppContextMenu.cs">
-      <SubType>Form</SubType>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="ExtReferences\ReportGenerator\ReportGenerator.exe.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="SettingDialog.resx">
+      <DependentUpon>SettingDialog.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -86,8 +93,25 @@
   <ItemGroup>
     <None Include="Resources\CodeCoverage.ico" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
-    <Folder Include="ExtReferences\" />
+    <Content Include="ExtReferences\ReportGenerator\ICSharpCode.NRefactory.CSharp.dll" />
+    <Content Include="ExtReferences\ReportGenerator\ICSharpCode.NRefactory.dll" />
+    <Content Include="ExtReferences\ReportGenerator\LICENSE.txt" />
+    <Content Include="ExtReferences\ReportGenerator\Mono.Cecil.dll" />
+    <Content Include="ExtReferences\ReportGenerator\Mono.Cecil.Mdb.dll" />
+    <Content Include="ExtReferences\ReportGenerator\Mono.Cecil.Pdb.dll" />
+    <Content Include="ExtReferences\ReportGenerator\Mono.Cecil.Rocks.dll" />
+    <Content Include="ExtReferences\ReportGenerator\Readme.txt" />
+    <Content Include="ExtReferences\ReportGenerator\ReportGenerator.exe" />
+    <Content Include="ExtReferences\ReportGenerator\ReportGenerator.Reporting.dll" />
+    <Content Include="ExtReferences\ReportGenerator\ReportGenerator.Reporting.XML" />
+    <Content Include="ExtReferences\ReportGenerator\ReportGenerator.XML" />
+    <Content Include="ExtReferences\VS.CodeCoverage.dlls\Microsoft.VisualStudio.Coverage.Analysis.dll" />
+    <Content Include="ExtReferences\VS.CodeCoverage.dlls\Microsoft.VisualStudio.Coverage.Interop.dll" />
+    <Content Include="ExtReferences\VS.CodeCoverage.dlls\Microsoft.VisualStudio.Coverage.Monitor.dll" />
+    <Content Include="ExtReferences\VS.CodeCoverage.dlls\Microsoft.VisualStudio.Coverage.Symbols.dll" />
+    <Content Include="ExtReferences\VS.CodeCoverage.dlls\vspmsg.dll" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

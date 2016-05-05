@@ -11,26 +11,20 @@ namespace CodeCoverage
     {
         public string ProgramFile { get; private set; }
         public string Args { get; private set; }
-        public bool IsSuccess { get { return string.IsNullOrEmpty(sbErrorLog.ToString()); } }
         private StringBuilder sbErrorLog;
         private StringBuilder sbOutputLog;
 
-        public static bool Run(string fileName, string args, StringBuilder outputLog, StringBuilder errorLog)
+        public static void Run(string fileName, string args, StringBuilder outputLog, StringBuilder errorLog)
         {
             var instance = new ExternalProgramManager(fileName, args, outputLog, errorLog);
             try
             {                
                 var iRetVal = instance.RunExternalProgram();
-                if(iRetVal != 0 && errorLog.Length == 0)
-                {
-                    errorLog.Append("Error Code Recieved: " + iRetVal);
-                }
             }
             catch(Exception exc)
             {
                 errorLog.Append(exc.Message);
             }
-            return instance.IsSuccess;
         }
 
         private ExternalProgramManager(string fileName, string args, StringBuilder outputLog, StringBuilder errorLog)

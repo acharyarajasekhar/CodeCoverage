@@ -8,7 +8,7 @@ namespace CodeCoverage
         [STAThread]
         static void Main(string[] args)
         {
-            Application.Run(new TrayAppContextMenu());
+            Application.Run(new CodeCoverageContext());
         }
     }
 }

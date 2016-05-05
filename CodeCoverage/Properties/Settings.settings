@@ -2,22 +2,22 @@
 <SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="CodeCoverage.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
-    <Setting Name="VsPerfCmdExe" Type="System.String" Scope="Application">
+    <Setting Name="VsPerfCmdExePath" Type="System.String" Scope="User">
       <Value Profile="(Default)">VsPerfCmd.exe</Value>
     </Setting>
-    <Setting Name="StartVsPerfCmdExe" Type="System.String" Scope="Application">
+    <Setting Name="StartVsPerfCmdExeArgs" Type="System.String" Scope="User">
       <Value Profile="(Default)">/start:coverage /output:{0}</Value>
     </Setting>
-    <Setting Name="StopVsPerfCmdExe" Type="System.String" Scope="Application">
+    <Setting Name="StopVsPerfCmdExeArgs" Type="System.String" Scope="User">
       <Value Profile="(Default)">/shutdown</Value>
     </Setting>
-    <Setting Name="ReportGeneratorExe" Type="System.String" Scope="Application">
+    <Setting Name="ReportGeneratorExePath" Type="System.String" Scope="User">
       <Value Profile="(Default)">ReportGenerator.exe</Value>
     </Setting>
-    <Setting Name="ReportGeneratorExeArgs" Type="System.String" Scope="Application">
+    <Setting Name="ReportGeneratorExeArgs" Type="System.String" Scope="User">
       <Value Profile="(Default)">-reports:{0} -targetdir:{1}</Value>
     </Setting>
-    <Setting Name="BrowserExe" Type="System.String" Scope="Application">
+    <Setting Name="BrowserExePath" Type="System.String" Scope="User">
       <Value Profile="(Default)">C:\Program Files\Google\Chrome\Application\chrome.exe</Value>
     </Setting>
   </Settings>

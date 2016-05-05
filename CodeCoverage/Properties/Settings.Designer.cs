@@ -23,57 +23,75 @@ namespace CodeCoverage.Properties {
             }
         }
         
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("VsPerfCmd.exe")]
-        public string VsPerfCmdExe {
+        public string VsPerfCmdExePath {
             get {
-                return ((string)(this["VsPerfCmdExe"]));
+                return ((string)(this["VsPerfCmdExePath"]));
+            }
+            set {
+                this["VsPerfCmdExePath"] = value;
             }
         }
         
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("/start:coverage /output:{0}")]
-        public string StartVsPerfCmdExe {
+        public string StartVsPerfCmdExeArgs {
             get {
-                return ((string)(this["StartVsPerfCmdExe"]));
+                return ((string)(this["StartVsPerfCmdExeArgs"]));
+            }
+            set {
+                this["StartVsPerfCmdExeArgs"] = value;
             }
         }
         
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("/shutdown")]
-        public string StopVsPerfCmdExe {
+        public string StopVsPerfCmdExeArgs {
             get {
-                return ((string)(this["StopVsPerfCmdExe"]));
+                return ((string)(this["StopVsPerfCmdExeArgs"]));
+            }
+            set {
+                this["StopVsPerfCmdExeArgs"] = value;
             }
         }
         
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("ReportGenerator.exe")]
-        public string ReportGeneratorExe {
+        public string ReportGeneratorExePath {
             get {
-                return ((string)(this["ReportGeneratorExe"]));
+                return ((string)(this["ReportGeneratorExePath"]));
+            }
+            set {
+                this["ReportGeneratorExePath"] = value;
             }
         }
         
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("-reports:{0} -targetdir:{1}")]
         public string ReportGeneratorExeArgs {
             get {
                 return ((string)(this["ReportGeneratorExeArgs"]));
             }
+            set {
+                this["ReportGeneratorExeArgs"] = value;
+            }
         }
         
-        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("C:\\Program Files\\Google\\Chrome\\Application\\chrome.exe")]
-        public string BrowserExe {
+        public string BrowserExePath {
             get {
-                return ((string)(this["BrowserExe"]));
+                return ((string)(this["BrowserExePath"]));
+            }
+            set {
+                this["BrowserExePath"] = value;
             }
         }
     }
