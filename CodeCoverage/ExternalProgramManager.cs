@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,15 +14,15 @@ namespace CodeCoverage
         public string Args { get; private set; }
         private StringBuilder sbErrorLog;
         private StringBuilder sbOutputLog;
-
+        
         public static void Run(string fileName, string args, StringBuilder outputLog, StringBuilder errorLog)
         {
             var instance = new ExternalProgramManager(fileName, args, outputLog, errorLog);
             try
-            {                
-                var iRetVal = instance.RunExternalProgram();
+            {
+                instance.RunExternalProgram();
             }
-            catch(Exception exc)
+            catch (Exception exc)
             {
                 errorLog.Append(exc.Message);
             }
@@ -35,7 +36,7 @@ namespace CodeCoverage
             this.sbOutputLog = outputLog;
         }
 
-        private int RunExternalProgram()
+        private void RunExternalProgram()
         {
             var p = new Process();
             p.StartInfo.FileName = ProgramFile;
@@ -49,8 +50,6 @@ namespace CodeCoverage
             p.Start();
             p.BeginErrorReadLine();
             p.BeginOutputReadLine();
-            p.WaitForExit();
-            return p.ExitCode;
         }
 
         private void p_OutputDataReceived(object sender, DataReceivedEventArgs e)

@@ -5,20 +5,29 @@
     <Setting Name="VsPerfCmdExePath" Type="System.String" Scope="User">
       <Value Profile="(Default)">VsPerfCmd.exe</Value>
     </Setting>
-    <Setting Name="StartVsPerfCmdExeArgs" Type="System.String" Scope="User">
-      <Value Profile="(Default)">/start:coverage /output:{0}</Value>
+    <Setting Name="StartVsPerfCmdExeArgs" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">/start:coverage /output:{0} /CS /USER:{1}</Value>
     </Setting>
-    <Setting Name="StopVsPerfCmdExeArgs" Type="System.String" Scope="User">
+    <Setting Name="StopVsPerfCmdExeArgs" Type="System.String" Scope="Application">
       <Value Profile="(Default)">/shutdown</Value>
     </Setting>
     <Setting Name="ReportGeneratorExePath" Type="System.String" Scope="User">
       <Value Profile="(Default)">ReportGenerator.exe</Value>
     </Setting>
-    <Setting Name="ReportGeneratorExeArgs" Type="System.String" Scope="User">
+    <Setting Name="ReportGeneratorExeArgs" Type="System.String" Scope="Application">
       <Value Profile="(Default)">-reports:{0} -targetdir:{1}</Value>
     </Setting>
     <Setting Name="BrowserExePath" Type="System.String" Scope="User">
       <Value Profile="(Default)">C:\Program Files\Google\Chrome\Application\chrome.exe</Value>
+    </Setting>
+    <Setting Name="VsInstrExePath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">VsInstr.exe</Value>
+    </Setting>
+    <Setting Name="VsInstrExeArgs" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">{0} /coverage</Value>
+    </Setting>
+    <Setting Name="AppPoolIdentity" Type="System.String" Scope="User">
+      <Value Profile="(Default)">Acharya</Value>
     </Setting>
   </Settings>
 </SettingsFile>

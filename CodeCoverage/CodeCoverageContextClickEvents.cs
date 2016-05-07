@@ -32,11 +32,11 @@ namespace CodeCoverage
             }
         }
 
-        private void ViewLogMenuItem_Click(object sender, EventArgs e)
-        {
-            TrayIcon.ShowBalloonTip(3000, "Log", OutputLog.ToString(), ToolTipIcon.Info);
-        }
-
+        /// <summary>
+        /// Opens report in browser
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void ViewCoverageReportMenuItem_Click(object sender, EventArgs e)
         {
             string coverageFile = string.Empty;
@@ -71,21 +71,38 @@ namespace CodeCoverage
             }
         }
 
+        /// <summary>
+        /// Start Session
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void StartSessionMenuItem_Click(object sender, EventArgs e)
         {
+            string coverageFile = string.Empty;
+
             using (var dialog = new SaveFileDialog())
             {
                 dialog.Filter = "Coverage File|*.coverage";
-                dialog.Title = "Save Coverage File";
+                dialog.Title = "Select Coverage File";
 
                 if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
                 {
-                    ExternalProgramManager.Run(Properties.Settings.Default.VsPerfCmdExePath, string.Format(Properties.Settings.Default.StartVsPerfCmdExeArgs, dialog.FileName), null, ErrorLog);
-                    HandleResult();
+                    coverageFile = dialog.FileName;
                 }
+            }
+
+            if (!string.IsNullOrEmpty(coverageFile))
+            {
+                ExternalProgramManager.Run(Properties.Settings.Default.VsPerfCmdExePath, string.Format(Properties.Settings.Default.StartVsPerfCmdExeArgs, coverageFile, Properties.Settings.Default.AppPoolIdentity), null, ErrorLog);
+                HandleResult();
             }
         }
 
+        /// <summary>
+        /// Stop Session
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void StopSessionMenuItem_Click(object sender, EventArgs e)
         {
             ExternalProgramManager.Run(Properties.Settings.Default.VsPerfCmdExePath, Properties.Settings.Default.StopVsPerfCmdExeArgs, null, ErrorLog);

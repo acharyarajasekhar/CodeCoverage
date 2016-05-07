@@ -37,8 +37,9 @@ namespace CodeCoverage
         {
             if (ErrorLog.Length != 0)
             {
-                TrayIcon.ShowBalloonTip(10000, "Error", ErrorLog.ToString(), ToolTipIcon.Error);
+                //TrayIcon.ShowBalloonTip(10000, "Error", ErrorLog.ToString(), ToolTipIcon.Error);
                 MessageBox.Show(ErrorLog.ToString(), "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ErrorLog.Clear();
             }
         }
     }

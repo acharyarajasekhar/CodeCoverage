@@ -35,27 +35,21 @@ namespace CodeCoverage.Properties {
             }
         }
         
-        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("/start:coverage /output:{0}")]
+        [global::System.Configuration.DefaultSettingValueAttribute("/start:coverage /output:{0} /CS /USER:{1}")]
         public string StartVsPerfCmdExeArgs {
             get {
                 return ((string)(this["StartVsPerfCmdExeArgs"]));
             }
-            set {
-                this["StartVsPerfCmdExeArgs"] = value;
-            }
         }
         
-        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("/shutdown")]
         public string StopVsPerfCmdExeArgs {
             get {
                 return ((string)(this["StopVsPerfCmdExeArgs"]));
-            }
-            set {
-                this["StopVsPerfCmdExeArgs"] = value;
             }
         }
         
@@ -71,15 +65,12 @@ namespace CodeCoverage.Properties {
             }
         }
         
-        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("-reports:{0} -targetdir:{1}")]
         public string ReportGeneratorExeArgs {
             get {
                 return ((string)(this["ReportGeneratorExeArgs"]));
-            }
-            set {
-                this["ReportGeneratorExeArgs"] = value;
             }
         }
         
@@ -92,6 +83,39 @@ namespace CodeCoverage.Properties {
             }
             set {
                 this["BrowserExePath"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("VsInstr.exe")]
+        public string VsInstrExePath {
+            get {
+                return ((string)(this["VsInstrExePath"]));
+            }
+            set {
+                this["VsInstrExePath"] = value;
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("{0} /coverage")]
+        public string VsInstrExeArgs {
+            get {
+                return ((string)(this["VsInstrExeArgs"]));
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("Acharya")]
+        public string AppPoolIdentity {
+            get {
+                return ((string)(this["AppPoolIdentity"]));
+            }
+            set {
+                this["AppPoolIdentity"] = value;
             }
         }
     }

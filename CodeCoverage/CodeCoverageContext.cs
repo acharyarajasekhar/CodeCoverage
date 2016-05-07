@@ -15,7 +15,6 @@ namespace CodeCoverage
         private MenuItem StopSessionMenuItem;
         private MenuItem OpenCoverageReportMenuItem;
         private MenuItem SettingsMenuItem;
-        private MenuItem ViewLogMenuItem;
         private MenuItem ExitMenuItem;
         private StringBuilder OutputLog;
         private StringBuilder ErrorLog;
@@ -38,7 +37,6 @@ namespace CodeCoverage
             StartSessionMenuItem = new MenuItem();
             StopSessionMenuItem = new MenuItem();
             OpenCoverageReportMenuItem = new MenuItem();
-            ViewLogMenuItem = new MenuItem();
             SettingsMenuItem = new MenuItem();
             ExitMenuItem = new MenuItem();
 
@@ -56,10 +54,6 @@ namespace CodeCoverage
             OpenCoverageReportMenuItem.Name = "OpenCoverageReportMenuItem";
             OpenCoverageReportMenuItem.Text = "Open Report";
             OpenCoverageReportMenuItem.Click += ViewCoverageReportMenuItem_Click;
-
-            ViewLogMenuItem.Name = "ViewLogMenuItem";
-            ViewLogMenuItem.Text = "View Log";
-            ViewLogMenuItem.Click += ViewLogMenuItem_Click;
 
             SettingsMenuItem.Name = "SettingsMenuItem";
             SettingsMenuItem.Text = "Settings";
