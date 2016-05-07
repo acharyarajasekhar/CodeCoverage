@@ -8,6 +8,11 @@ namespace CodeCoverage
 {
     internal partial class CodeCoverageContext
     {
+        private void SelectAssembliesMenuItem_Click(object sender, EventArgs e)
+        {
+            new ListOfAssemblies().ShowDialog();
+        }
+
         /// <summary>
         /// Settings File Changes
         /// </summary>
@@ -93,10 +98,13 @@ namespace CodeCoverage
 
             if (!string.IsNullOrEmpty(coverageFile))
             {
+                InstrumentSelectedAssemblies();
+                ExternalProgramManager.Run(Properties.Settings.Default.RestartIIS, null, null, ErrorLog);
                 ExternalProgramManager.Run(Properties.Settings.Default.VsPerfCmdExePath, string.Format(Properties.Settings.Default.StartVsPerfCmdExeArgs, coverageFile, Properties.Settings.Default.AppPoolIdentity), null, ErrorLog);
                 HandleResult();
+                ExternalProgramManager.Run(Properties.Settings.Default.RestartIIS, null, null, ErrorLog);
             }
-        }
+        }        
 
         /// <summary>
         /// Stop Session
@@ -105,8 +113,10 @@ namespace CodeCoverage
         /// <param name="e"></param>
         private void StopSessionMenuItem_Click(object sender, EventArgs e)
         {
+            ExternalProgramManager.Run(Properties.Settings.Default.RestartIIS, null, null, ErrorLog);
             ExternalProgramManager.Run(Properties.Settings.Default.VsPerfCmdExePath, Properties.Settings.Default.StopVsPerfCmdExeArgs, null, ErrorLog);
             HandleResult();
+            ExternalProgramManager.Run(Properties.Settings.Default.RestartIIS, null, null, ErrorLog);
         }        
 
         /// <summary>

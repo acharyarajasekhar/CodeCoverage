@@ -29,5 +29,11 @@
     <Setting Name="AppPoolIdentity" Type="System.String" Scope="User">
       <Value Profile="(Default)">Acharya</Value>
     </Setting>
+    <Setting Name="ListOfAssemblies" Type="System.Collections.Generic.List&lt;System.String&gt;" Scope="User">
+      <Value Profile="(Default)" />
+    </Setting>
+    <Setting Name="RestartIIS" Type="System.String" Scope="User">
+      <Value Profile="(Default)">iisreset</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

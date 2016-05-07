@@ -87,7 +87,7 @@
             this.Name = "SettingDialog";
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "CodeCoverageConfig";
+            this.Text = "Configuration";
             this.ResumeLayout(false);
 
         }

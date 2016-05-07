@@ -118,5 +118,28 @@ namespace CodeCoverage.Properties {
                 this["AppPoolIdentity"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        public global::System.Collections.Generic.List<System.String> ListOfAssemblies {
+            get {
+                return ((global::System.Collections.Generic.List<System.String>)(this["ListOfAssemblies"]));
+            }
+            set {
+                this["ListOfAssemblies"] = value;
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("iisreset")]
+        public string RestartIIS {
+            get {
+                return ((string)(this["RestartIIS"]));
+            }
+            set {
+                this["RestartIIS"] = value;
+            }
+        }
     }
 }

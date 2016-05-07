@@ -52,6 +52,12 @@
   <ItemGroup>
     <Compile Include="CodeCoverageContextClickEvents.cs" />
     <Compile Include="CodeCoverageContextHelpers.cs" />
+    <Compile Include="ListOfAssemblies.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ListOfAssemblies.Designer.cs">
+      <DependentUpon>ListOfAssemblies.cs</DependentUpon>
+    </Compile>
     <Compile Include="SettingDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -82,6 +88,9 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="ListOfAssemblies.resx">
+      <DependentUpon>ListOfAssemblies.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SettingDialog.resx">
       <DependentUpon>SettingDialog.cs</DependentUpon>
     </EmbeddedResource>

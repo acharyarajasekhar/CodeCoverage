@@ -10,6 +10,7 @@ namespace CodeCoverage
         // Declaration of components
         private NotifyIcon TrayIcon;
         private ContextMenu TrayIconContextMenu;
+        private MenuItem SelectAssembliesMenuItem;
         private MenuItem SessionMenuItem;
         private MenuItem StartSessionMenuItem;
         private MenuItem StopSessionMenuItem;
@@ -17,7 +18,7 @@ namespace CodeCoverage
         private MenuItem SettingsMenuItem;
         private MenuItem ExitMenuItem;
         private StringBuilder OutputLog;
-        private StringBuilder ErrorLog;
+        private StringBuilder ErrorLog;        
 
         /// <summary>
         /// CodeCoverageContext
@@ -33,12 +34,17 @@ namespace CodeCoverage
         private void InitializeComponent()
         {
             TrayIcon = new NotifyIcon();
+            SelectAssembliesMenuItem = new MenuItem();
             SessionMenuItem = new MenuItem();
             StartSessionMenuItem = new MenuItem();
             StopSessionMenuItem = new MenuItem();
             OpenCoverageReportMenuItem = new MenuItem();
             SettingsMenuItem = new MenuItem();
             ExitMenuItem = new MenuItem();
+
+            SelectAssembliesMenuItem.Name = "SelectAssembliesMenuItem";
+            SelectAssembliesMenuItem.Text = "Select Assemblies";
+            SelectAssembliesMenuItem.Click += SelectAssembliesMenuItem_Click;
 
             SessionMenuItem.Name = "SessionMenuItem";
             SessionMenuItem.Text = "New Session";
@@ -72,6 +78,7 @@ namespace CodeCoverage
             TrayIconContextMenu = new ContextMenu();
             TrayIconContextMenu.MenuItems.AddRange(new MenuItem[]
             {
+                SelectAssembliesMenuItem,
                 SessionMenuItem,
                 OpenCoverageReportMenuItem,
                 //ViewLogMenuItem,
@@ -86,7 +93,7 @@ namespace CodeCoverage
 
             OutputLog = new StringBuilder();
             ErrorLog = new StringBuilder();
-        }        
+        }                
 
         protected override void Dispose(bool isDisposing)
         {

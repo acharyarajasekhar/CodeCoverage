@@ -42,5 +42,13 @@ namespace CodeCoverage
                 ErrorLog.Clear();
             }
         }
+
+        private void InstrumentSelectedAssemblies()
+        {
+            ExternalProgramManager.Run(Properties.Settings.Default.RestartIIS, null, null, ErrorLog);
+            foreach(var assembly in Properties.Settings.Default.ListOfAssemblies)
+                ExternalProgramManager.Run(Properties.Settings.Default.VsInstrExePath, string.Format(Properties.Settings.Default.VsInstrExeArgs, assembly), null, ErrorLog);
+            ExternalProgramManager.Run(Properties.Settings.Default.RestartIIS, null, null, ErrorLog);
+        }
     }
 }
