@@ -8,11 +8,6 @@ namespace CodeCoverage
 {
     internal partial class CodeCoverageContext
     {
-        private void SelectAssembliesMenuItem_Click(object sender, EventArgs e)
-        {
-            //new ListOfAssemblies().ShowDialog();
-        }
-
         /// <summary>
         /// Settings File Changes
         /// </summary>

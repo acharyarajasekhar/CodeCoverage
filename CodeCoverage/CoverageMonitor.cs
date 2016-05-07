@@ -24,13 +24,13 @@ namespace CodeCoverage
             script.AppendCommand(Properties.Settings.Default.VsPerfCmdExePath + " " + Properties.Settings.Default.StopVsPerfCmdExeArgs);
             script.AppendCommand(Properties.Settings.Default.StartIIS);
 
-            foreach (var assembly in Properties.Settings.Default.ListOfAssemblies)
-            {
-                script.AppendCommand("echo DeInstrumenting " + assembly);
-                script.AppendLine("del \"" + assembly + "\"");
-                script.AppendLine("del \"" + Path.GetDirectoryName(assembly.Value) + "\\" + Path.GetFileNameWithoutExtension(assembly.Value) + ".instr.pdb" + "\"");
-                script.AppendLine("rename \"" + Path.GetDirectoryName(assembly.Value) + "\\" + Path.GetFileNameWithoutExtension(assembly.Value) + Path.GetExtension(assembly.Value) + ".orig" + "\" " + Path.GetFileName(assembly.Value));
-            }
+            //foreach (var assembly in Properties.Settings.Default.ListOfAssemblies)
+            //{
+            //    script.AppendCommand("echo DeInstrumenting " + assembly);
+            //    script.AppendLine("del \"" + assembly + "\"");
+            //    script.AppendLine("del \"" + Path.GetDirectoryName(assembly.Value) + "\\" + Path.GetFileNameWithoutExtension(assembly.Value) + ".instr.pdb" + "\"");
+            //    script.AppendLine("rename \"" + Path.GetDirectoryName(assembly.Value) + "\\" + Path.GetFileNameWithoutExtension(assembly.Value) + Path.GetExtension(assembly.Value) + ".orig" + "\" " + Path.GetFileName(assembly.Value));
+            //}
 
             script.AppendCommand("echo Code coverage monitor stopped successfully. Code coverage report is ready.");
             script.AppendLine("pause");

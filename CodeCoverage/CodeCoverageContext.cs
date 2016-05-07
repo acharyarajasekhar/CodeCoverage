@@ -10,7 +10,6 @@ namespace CodeCoverage
         // Declaration of components
         private NotifyIcon TrayIcon;
         private ContextMenu TrayIconContextMenu;
-        private MenuItem SelectAssembliesMenuItem;
         private MenuItem NewSessionMenuItem;
         private MenuItem OpenCoverageReportMenuItem;
         private MenuItem SettingsMenuItem;
@@ -32,15 +31,10 @@ namespace CodeCoverage
         private void InitializeComponent()
         {
             TrayIcon = new NotifyIcon();
-            SelectAssembliesMenuItem = new MenuItem();
             NewSessionMenuItem = new MenuItem();
             OpenCoverageReportMenuItem = new MenuItem();
             SettingsMenuItem = new MenuItem();
             ExitMenuItem = new MenuItem();
-
-            SelectAssembliesMenuItem.Name = "SelectAssembliesMenuItem";
-            SelectAssembliesMenuItem.Text = "Select Assemblies";
-            SelectAssembliesMenuItem.Click += SelectAssembliesMenuItem_Click;
 
             NewSessionMenuItem.Name = "NewSessionMenuItem";
             NewSessionMenuItem.Text = "Start New Session";
@@ -61,10 +55,8 @@ namespace CodeCoverage
             TrayIconContextMenu = new ContextMenu();
             TrayIconContextMenu.MenuItems.AddRange(new MenuItem[]
             {
-                SelectAssembliesMenuItem,
                 NewSessionMenuItem,
                 OpenCoverageReportMenuItem,
-                //ViewLogMenuItem,
                 SettingsMenuItem,
                 ExitMenuItem
             });
