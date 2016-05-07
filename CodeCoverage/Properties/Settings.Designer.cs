@@ -37,7 +37,7 @@ namespace CodeCoverage.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("/start:coverage /output:{0} /CS /USER:{1}")]
+        [global::System.Configuration.DefaultSettingValueAttribute("/start:coverage /output:\"{0}\" /CS /USER:{1}")]
         public string StartVsPerfCmdExeArgs {
             get {
                 return ((string)(this["StartVsPerfCmdExeArgs"]));
@@ -67,7 +67,7 @@ namespace CodeCoverage.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("-reports:{0} -targetdir:{1}")]
+        [global::System.Configuration.DefaultSettingValueAttribute("-reports:\"{0}\" -targetdir:\"{1}\"")]
         public string ReportGeneratorExeArgs {
             get {
                 return ((string)(this["ReportGeneratorExeArgs"]));
@@ -100,7 +100,7 @@ namespace CodeCoverage.Properties {
         
         [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.Configuration.DefaultSettingValueAttribute("{0} /coverage")]
+        [global::System.Configuration.DefaultSettingValueAttribute("\"{0}\" /coverage")]
         public string VsInstrExeArgs {
             get {
                 return ((string)(this["VsInstrExeArgs"]));
@@ -121,24 +121,39 @@ namespace CodeCoverage.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        public global::System.Collections.Generic.List<System.String> ListOfAssemblies {
+        public global::System.Collections.Generic.List<CodeCoverage.AssemblyFileName> ListOfAssemblies {
             get {
-                return ((global::System.Collections.Generic.List<System.String>)(this["ListOfAssemblies"]));
+                return ((global::System.Collections.Generic.List<CodeCoverage.AssemblyFileName>)(this["ListOfAssemblies"]));
             }
             set {
                 this["ListOfAssemblies"] = value;
             }
         }
         
-        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.Configuration.DefaultSettingValueAttribute("iisreset")]
         public string RestartIIS {
             get {
                 return ((string)(this["RestartIIS"]));
             }
-            set {
-                this["RestartIIS"] = value;
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("iisreset /start")]
+        public string StartIIS {
+            get {
+                return ((string)(this["StartIIS"]));
+            }
+        }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("iisreset /stop")]
+        public string StopIIS {
+            get {
+                return ((string)(this["StopIIS"]));
             }
         }
     }

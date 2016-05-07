@@ -11,9 +11,7 @@ namespace CodeCoverage
         private NotifyIcon TrayIcon;
         private ContextMenu TrayIconContextMenu;
         private MenuItem SelectAssembliesMenuItem;
-        private MenuItem SessionMenuItem;
-        private MenuItem StartSessionMenuItem;
-        private MenuItem StopSessionMenuItem;
+        private MenuItem NewSessionMenuItem;
         private MenuItem OpenCoverageReportMenuItem;
         private MenuItem SettingsMenuItem;
         private MenuItem ExitMenuItem;
@@ -35,9 +33,7 @@ namespace CodeCoverage
         {
             TrayIcon = new NotifyIcon();
             SelectAssembliesMenuItem = new MenuItem();
-            SessionMenuItem = new MenuItem();
-            StartSessionMenuItem = new MenuItem();
-            StopSessionMenuItem = new MenuItem();
+            NewSessionMenuItem = new MenuItem();
             OpenCoverageReportMenuItem = new MenuItem();
             SettingsMenuItem = new MenuItem();
             ExitMenuItem = new MenuItem();
@@ -46,16 +42,9 @@ namespace CodeCoverage
             SelectAssembliesMenuItem.Text = "Select Assemblies";
             SelectAssembliesMenuItem.Click += SelectAssembliesMenuItem_Click;
 
-            SessionMenuItem.Name = "SessionMenuItem";
-            SessionMenuItem.Text = "New Session";
-
-            StartSessionMenuItem.Name = "StartSessionMenuItem";
-            StartSessionMenuItem.Text = "Start";
-            StartSessionMenuItem.Click += StartSessionMenuItem_Click;
-
-            StopSessionMenuItem.Name = "StopSessionMenuItem";
-            StopSessionMenuItem.Text = "Stop";
-            StopSessionMenuItem.Click += StopSessionMenuItem_Click;
+            NewSessionMenuItem.Name = "NewSessionMenuItem";
+            NewSessionMenuItem.Text = "Start New Session";
+            NewSessionMenuItem.Click += StartSessionMenuItem_Click;
 
             OpenCoverageReportMenuItem.Name = "OpenCoverageReportMenuItem";
             OpenCoverageReportMenuItem.Text = "Open Report";
@@ -69,17 +58,11 @@ namespace CodeCoverage
             ExitMenuItem.Text = "Exit";
             ExitMenuItem.Click += ExitMenuItem_Click;
 
-            SessionMenuItem.MenuItems.AddRange(new MenuItem[] 
-            {
-                StartSessionMenuItem,
-                StopSessionMenuItem
-            });
-
             TrayIconContextMenu = new ContextMenu();
             TrayIconContextMenu.MenuItems.AddRange(new MenuItem[]
             {
                 SelectAssembliesMenuItem,
-                SessionMenuItem,
+                NewSessionMenuItem,
                 OpenCoverageReportMenuItem,
                 //ViewLogMenuItem,
                 SettingsMenuItem,

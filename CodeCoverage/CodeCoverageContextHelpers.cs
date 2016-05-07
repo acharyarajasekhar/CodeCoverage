@@ -43,12 +43,25 @@ namespace CodeCoverage
             }
         }
 
-        private void InstrumentSelectedAssemblies()
+        private void OpenCoverageReport(string coverageFile)
         {
-            ExternalProgramManager.Run(Properties.Settings.Default.RestartIIS, null, null, ErrorLog);
-            foreach(var assembly in Properties.Settings.Default.ListOfAssemblies)
-                ExternalProgramManager.Run(Properties.Settings.Default.VsInstrExePath, string.Format(Properties.Settings.Default.VsInstrExeArgs, assembly), null, ErrorLog);
-            ExternalProgramManager.Run(Properties.Settings.Default.RestartIIS, null, null, ErrorLog);
+            if (!string.IsNullOrEmpty(coverageFile))
+            {
+                string coverageXmlFile;
+                ToCoverageXml(coverageFile, out coverageXmlFile);
+                HandleResult();
+                if (CanProceed)
+                {
+                    var targetDir = Path.GetDirectoryName(coverageFile) + "\\" + Path.GetFileNameWithoutExtension(coverageFile);
+                    ExternalProgramManager.Run(Config.ReportGeneratorExePath, string.Format(Config.ReportGeneratorExeArgs, coverageXmlFile, targetDir), null, ErrorLog);
+                    HandleResult();
+                    if (CanProceed)
+                    {
+                        ExternalProgramManager.Run(Config.BrowserExePath, targetDir + "\\index.htm", null, ErrorLog);
+                        HandleResult();
+                    }
+                }
+            }
         }
     }
 }

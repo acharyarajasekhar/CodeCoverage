@@ -10,7 +10,7 @@ namespace CodeCoverage
     {
         private void SelectAssembliesMenuItem_Click(object sender, EventArgs e)
         {
-            new ListOfAssemblies().ShowDialog();
+            //new ListOfAssemblies().ShowDialog();
         }
 
         /// <summary>
@@ -57,24 +57,8 @@ namespace CodeCoverage
                 }
             }
 
-            if (!string.IsNullOrEmpty(coverageFile))
-            {
-                string coverageXmlFile;
-                ToCoverageXml(coverageFile, out coverageXmlFile);
-                HandleResult();
-                if (CanProceed)
-                {
-                    var targetDir = Path.GetDirectoryName(coverageFile) + "\\" + Path.GetFileNameWithoutExtension(coverageFile);
-                    ExternalProgramManager.Run(Config.ReportGeneratorExePath, string.Format(Config.ReportGeneratorExeArgs, coverageXmlFile, targetDir), null, ErrorLog);
-                    HandleResult();
-                    if (CanProceed)
-                    {
-                        ExternalProgramManager.Run(Config.BrowserExePath, targetDir + "\\index.htm", null, ErrorLog);
-                        HandleResult();
-                    }
-                }
-            }
-        }
+            OpenCoverageReport(coverageFile);
+        }        
 
         /// <summary>
         /// Start Session
@@ -98,26 +82,11 @@ namespace CodeCoverage
 
             if (!string.IsNullOrEmpty(coverageFile))
             {
-                InstrumentSelectedAssemblies();
-                ExternalProgramManager.Run(Properties.Settings.Default.RestartIIS, null, null, ErrorLog);
-                ExternalProgramManager.Run(Properties.Settings.Default.VsPerfCmdExePath, string.Format(Properties.Settings.Default.StartVsPerfCmdExeArgs, coverageFile, Properties.Settings.Default.AppPoolIdentity), null, ErrorLog);
-                HandleResult();
-                ExternalProgramManager.Run(Properties.Settings.Default.RestartIIS, null, null, ErrorLog);
+                CoverageMonitor.Run(coverageFile);
+                if (File.Exists(coverageFile))
+                    OpenCoverageReport(coverageFile);
             }
-        }        
-
-        /// <summary>
-        /// Stop Session
-        /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
-        private void StopSessionMenuItem_Click(object sender, EventArgs e)
-        {
-            ExternalProgramManager.Run(Properties.Settings.Default.RestartIIS, null, null, ErrorLog);
-            ExternalProgramManager.Run(Properties.Settings.Default.VsPerfCmdExePath, Properties.Settings.Default.StopVsPerfCmdExeArgs, null, ErrorLog);
-            HandleResult();
-            ExternalProgramManager.Run(Properties.Settings.Default.RestartIIS, null, null, ErrorLog);
-        }        
+        }       
 
         /// <summary>
         /// Exit Application

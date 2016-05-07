@@ -41,6 +41,7 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Design" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml.Linq" />
@@ -50,14 +51,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FilteredFileNameEditor.cs" />
+    <Compile Include="AssemblyFileName.cs" />
     <Compile Include="CodeCoverageContextClickEvents.cs" />
     <Compile Include="CodeCoverageContextHelpers.cs" />
-    <Compile Include="ListOfAssemblies.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="ListOfAssemblies.Designer.cs">
-      <DependentUpon>ListOfAssemblies.cs</DependentUpon>
-    </Compile>
+    <Compile Include="CoverageMonitor.cs" />
+    <Compile Include="ExtraSettings.cs" />
     <Compile Include="SettingDialog.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -88,9 +87,6 @@
     </None>
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="ListOfAssemblies.resx">
-      <DependentUpon>ListOfAssemblies.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="SettingDialog.resx">
       <DependentUpon>SettingDialog.cs</DependentUpon>
     </EmbeddedResource>
